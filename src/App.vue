@@ -1,28 +1,32 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app id="inspire">
+    <Sidebar :drawer="drawer" />
+    <Topbar @drawerEvent="drawer = !drawer" />
+    <v-main style="background: #f5f5f540">
+      <v-container class="py-8 px-6" fluid>
+        <router-view></router-view>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { ref } from 'vue';
+import Sidebar from './components/SideBar.vue';
+import Topbar from './components/TopBar.vue';
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
+  components: { Topbar, Sidebar },
+  setup() {
+    const cards = ['Today', 'Yesterday'];
+    const drawer = ref(null);
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+    return {
+      cards,
+      drawer,
+    };
+  },
+};
+
+</script>
