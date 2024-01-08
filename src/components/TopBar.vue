@@ -1,4 +1,5 @@
 <template>
+  <div v-if="!$route.meta.hideTopbar">
     <v-app-bar app elevate-on-scroll elevation="5" color="white">
       <v-app-bar-nav-icon @click="$emit('drawerEvent')"></v-app-bar-nav-icon>
       
@@ -64,17 +65,20 @@
           <v-list-item two-line>
             <v-list-item-avatar>
               <img src="/user.png" />
+             
             </v-list-item-avatar>
   
             <v-list-item-content>
               <v-list-item-title>Aministrator</v-list-item-title>
               <v-list-item-subtitle>Logged In</v-list-item-subtitle>
+              <v-btn text @click="logoutUser">Logout</v-btn>
             </v-list-item-content>
           </v-list-item>
           <v-divider />
         </v-list>
       </v-menu>
     </v-app-bar>
+  </div>
   </template>
   
   <script>
@@ -89,6 +93,14 @@
       
       };
     },
+    methods: {
+    logoutUser() {
+   
+      localStorage.removeItem('token'); 
+
+      this.$router.push('/login');
+    },
+  },
   };
   </script>
   

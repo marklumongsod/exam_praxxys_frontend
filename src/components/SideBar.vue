@@ -1,4 +1,5 @@
 <template>
+   <div v-if="!$route.meta.hideTopbar">
   <v-app>
     <v-navigation-drawer v-model="drawer" app>
         <v-sheet color="grey-lighten-4" class="pa-4 d-flex flex-column align-center justify-center">
@@ -31,6 +32,7 @@
       </v-list>
     </v-navigation-drawer>
   </v-app>
+</div>
 </template>
 
 <script>

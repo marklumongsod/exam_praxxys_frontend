@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Dashboard from '../views/Dashboard.vue'
 import ProductList from '../views/ProductList.vue';
 import VideoList from '../views/VideoList.vue';
+import Login from '../components/LogIn/AdminLogin.vue';
 
 Vue.use(VueRouter)
 
@@ -17,6 +18,10 @@ const routes = [
   },
   { path: '/video-list', 
     component: VideoList 
+  },
+  { path: '/login', 
+    component: Login ,
+    meta: { hideTopbar: true, hideSidebar: true }
   },
   
 ]
