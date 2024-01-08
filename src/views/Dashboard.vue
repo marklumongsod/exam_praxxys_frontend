@@ -88,7 +88,7 @@ export default {
       try {
         const response = await axios.get('http://127.0.0.1:8000/api/products/count');
         this.productCount = response.data.count;
-        this.updateActivityLog(); // Call the method to update activityLog here
+        this.updateActivityLog(); 
       } catch (error) {
         console.error('Error fetching product count:', error);
       }

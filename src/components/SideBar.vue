@@ -62,7 +62,6 @@
          },
          mounted() {
           console.log('Product.vue component mounted');
-          // Add any other logic you want to execute when the component mounts
         }
         
 

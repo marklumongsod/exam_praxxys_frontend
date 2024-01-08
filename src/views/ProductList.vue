@@ -357,7 +357,7 @@ async validateStep3() {
     }
   } catch (error) {
     console.error('Error validating Step 3:', error);
-    // Handle error, display message, etc.
+    // Handle error
   }
 },
 
@@ -410,7 +410,6 @@ async validateStep3() {
     }
   },
 
-  // Update Step 2 function
   async updateStep2(productId) {
     try {
       const formData = new FormData();
@@ -530,7 +529,7 @@ async validateStep3() {
     async deleteConfirmed() {
       this.deleteConfirmation = false;
    
-      const productId = this.itemToDelete // Assuming this is the ID of the item you want to delete
+      const productId = this.itemToDelete 
       try {
         await axios.delete(`http://127.0.0.1:8000/api/products/${productId}`);
         console.log(`Product with ID ${productId} has been deleted.`);
@@ -539,7 +538,6 @@ async validateStep3() {
         this.alert.color = 'success';
         this.alert.show = true;
       
-        // Instead of fetching all products again, you can remove the deleted item from the current list
         this.products = this.products.filter(product => product.id !== productId);
       } catch (error) {
         console.error('Error deleting product:', error);
@@ -558,5 +556,5 @@ async validateStep3() {
 </script>
 <style>
 .error--text {
-  border-color: red; /* Change the border color to red */
+  border-color: red; 
 }</style>
